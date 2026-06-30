@@ -1,0 +1,26 @@
+﻿<Window x:Class="tas.UI.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Авторизация" Height="220" Width="350"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        Foreground="{DynamicResource ForegroundBrush}">
+    <StackPanel Margin="20">
+        <Label Content="Логин" Foreground="{DynamicResource ForegroundBrush}"/>
+        <TextBox x:Name="tbLogin" Margin="0,0,0,10"
+                 Background="{DynamicResource BackgroundBrush}"
+                 Foreground="{DynamicResource ForegroundBrush}"/>
+        <Label Content="Пароль" Foreground="{DynamicResource ForegroundBrush}"/>
+        <PasswordBox x:Name="pbPassword" Margin="0,0,0,15"
+                     Background="{DynamicResource BackgroundBrush}"
+                     Foreground="{DynamicResource ForegroundBrush}"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Войти" Width="80" Margin="0,0,10,0" Click="Login_Click"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+            <Button Content="Регистрация" Width="100" Click="Register_Click"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

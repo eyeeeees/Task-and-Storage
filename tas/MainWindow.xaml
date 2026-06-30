@@ -1,0 +1,72 @@
+﻿<Window x:Class="tas.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Учёт задач" Height="550" Width="995"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        Foreground="{DynamicResource ForegroundBrush}">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+            <Label Content="Поиск:" Foreground="{DynamicResource ForegroundBrush}"/>
+            <TextBox x:Name="tbSearch" Width="150" Margin="0,0,10,0"
+                     Background="{DynamicResource BackgroundBrush}"
+                     Foreground="{DynamicResource ForegroundBrush}"/>
+            <Button Content="Найти" Click="Search_Click" Margin="0,0,20,0"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+
+            <Label Content="Статус:" Foreground="{DynamicResource ForegroundBrush}"/>
+            <ComboBox x:Name="cbStatus" Width="120" DisplayMemberPath="Name" SelectedValuePath="Id" Margin="0,0,10,0"
+                      Background="{DynamicResource BackgroundBrush}"
+                      Foreground="{DynamicResource ForegroundBrush}"/>
+            <Button Content="Фильтр" x:Name="btnFilter" Click="Filter_Click" Margin="0,0,20,0"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+
+            <Button Content="Добавить" x:Name="btnName" Click="Add_Click" Margin="0,0,10,0"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+            <Button Content="Редактировать" x:Name="btnEdit" Click="Edit_Click" Margin="0,0,10,0"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+            <Button Content="Удалить" Click="Delete_Click" x:Name="btnDelit" Margin="0,0,10,0"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+            <Button Content="Экспорт PDF" x:Name="btnExportpdf" Click="ExportPdf_Click" Margin="0,0,10,0"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+            <Button Content="Экспорт Excel" x:Name="btnexportexel" Click="ExportExcel_Click" Margin="0,0,10,0"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+            <Button Content="🌓 Тема" x:Name="btnTheme" Click="ToggleTheme_Click" Margin="20,0,0,0"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonForegroundBrush}"/>
+        </StackPanel>
+        <DataGrid x:Name="dgTasks" Grid.Row="2" 
+                  AutoGenerateColumns="False" 
+                  CanUserSortColumns="True" 
+                  IsReadOnly="True"
+                  Background="{DynamicResource DataGridBackgroundBrush}"
+                  Foreground="{DynamicResource ForegroundBrush}"
+                  ColumnHeaderStyle="{DynamicResource DataGridHeaderStyle}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="150"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="200"/>
+                <DataGridTextColumn Header="Исполнитель" Binding="{Binding ExecutorLogin}" Width="100"/>
+                <DataGridTextColumn Header="Срок" Binding="{Binding Deadline}" Width="100"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding StatusName}" Width="100"/>
+                <DataGridTextColumn Header="Создана" Binding="{Binding CreatedAt}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </Grid>
+</Window>

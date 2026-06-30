@@ -1,0 +1,107 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Кисти -->
+    <SolidColorBrush x:Key="BackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ForegroundBrush" Color="#000000"/>
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#F0F0F0"/>
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#DDDDDD"/>
+    <SolidColorBrush x:Key="ButtonForegroundBrush" Color="#000000"/>
+    <SolidColorBrush x:Key="DataGridBackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="DataGridHeaderBackgroundBrush" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="DataGridRowBackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="DataGridAlternatingRowBackgroundBrush" Color="#F5F5F5"/>
+    <SolidColorBrush x:Key="DataGridCellForegroundBrush" Color="#000000"/>
+    <SolidColorBrush x:Key="ComboBoxBackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ComboBoxItemBackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ComboBoxItemForegroundBrush" Color="#000000"/>
+    <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="TextBoxForegroundBrush" Color="#000000"/>
+    <SolidColorBrush x:Key="DatePickerBackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="DatePickerForegroundBrush" Color="#000000"/>
+
+    <!-- Стиль для DataGridHeader (заголовки) -->
+    <Style x:Key="DataGridHeaderStyle" TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="{StaticResource DataGridHeaderBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ForegroundBrush}"/>
+    </Style>
+
+    <!-- Стиль для самого DataGrid -->
+    <Style TargetType="DataGrid">
+        <Setter Property="Background" Value="{StaticResource DataGridBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="RowBackground" Value="{StaticResource DataGridRowBackgroundBrush}"/>
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource DataGridAlternatingRowBackgroundBrush}"/>
+    </Style>
+
+    <!-- Стиль для ячеек DataGrid -->
+    <Style TargetType="DataGridCell">
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Background}"/>
+        <Setter Property="Foreground" Value="{StaticResource DataGridCellForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ForegroundBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{StaticResource DataGridHeaderBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Стиль для строк DataGrid -->
+    <Style TargetType="DataGridRow">
+        <Setter Property="Background" Value="{StaticResource DataGridRowBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource DataGridCellForegroundBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="AlternationIndex" Value="1">
+                <Setter Property="Background" Value="{StaticResource DataGridAlternatingRowBackgroundBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- ComboBoxItem -->
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="Background" Value="{StaticResource ComboBoxItemBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ComboBoxItemForegroundBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{StaticResource DataGridHeaderBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource DataGridHeaderBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- TextBox -->
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource TextBoxBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBoxForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ForegroundBrush}"/>
+    </Style>
+
+    <!-- PasswordBox -->
+    <Style TargetType="PasswordBox">
+        <Setter Property="Background" Value="{StaticResource TextBoxBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBoxForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ForegroundBrush}"/>
+    </Style>
+
+    <!-- DatePicker -->
+    <Style TargetType="DatePicker">
+        <Setter Property="Background" Value="{StaticResource DatePickerBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource DatePickerForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ForegroundBrush}"/>
+    </Style>
+
+    <!-- DatePickerTextBox (внутреннее поле) -->
+    <Style TargetType="DatePickerTextBox">
+        <Setter Property="Background" Value="{StaticResource DatePickerBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource DatePickerForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ForegroundBrush}"/>
+    </Style>
+
+</ResourceDictionary>
